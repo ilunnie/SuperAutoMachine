@@ -117,10 +117,10 @@ public abstract class App
             rect = new RectangleF(location.Location, realSize);
  
         var pen = new Pen(cursorIn ? Color.Cyan : Color.Black, 4f);
-        var yellowPen = new Pen(Color.Yellow, 3f);
-        var whitePen = new Pen(Color.Yellow, 2f);
+        var yellowPen = new Pen(Color.Black, 3f);
+        var whitePen = new Pen(Color.Black, 2f);
  
-        g.FillRectangle(Brushes.Brown, rect);
+        g.FillRectangle(Brushes.LightBlue, rect);
         g.DrawRectangle(pen, rect.X, rect.Y, realWidth, rect.Height);
  
         if (image == null)
@@ -151,7 +151,7 @@ public abstract class App
         DrawText(level.ToString(), Color.White, levelRect);
  
         var tierRect = new RectangleF(rect.X + realWidth / 3, rect.Y + .8f * rect.Height, realWidth / 3, realWidth / 3);
-        DrawText(tier.ToString(), Color.Orange, tierRect);
+        DrawText(tier.ToString(), Color.Black, tierRect);
  
         if (!cursorIn || !isDown)
             return rect;
@@ -163,6 +163,39 @@ public abstract class App
         }
  
         grabDesloc = new PointF(cursor.X - grabStart.Value.X, cursor.Y - grabStart.Value.Y);
+ 
+        return rect;
+    }
+
+    public RectangleF DrawEmptyPiece(RectangleF location,
+        bool isGraspable,
+        string name, Bitmap image = null)
+    {
+        float realWidth = .6f * location.Height;
+        var realSize = new SizeF(realWidth, location.Height);
+ 
+        var position = new PointF(location.X, location.Y);
+        RectangleF rect = new RectangleF(position, realSize);
+ 
+        bool cursorIn = rect.Contains(cursor);
+ 
+        var pen = new Pen(cursorIn ? Color.Cyan : Color.Black, 4f);
+ 
+        g.FillRectangle(Brushes.LightBlue, rect);
+        g.DrawRectangle(pen, rect.X, rect.Y, realWidth, rect.Height);
+ 
+        if (image == null)
+            DrawText(name, Color.White, rect);
+        else DrawImage(image, rect);
+ 
+        if (!cursorIn || !isDown)
+            return rect;
+         
+        if (grabStart == null)
+        {
+            grabStart = cursor;
+            return rect;
+        }
  
         return rect;
     }
