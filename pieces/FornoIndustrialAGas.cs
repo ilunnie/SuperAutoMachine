@@ -33,6 +33,6 @@ public class FornoIndustrialAGas : Piece
 
     public override void StartShoppingEffect(Mercado mercado) 
     {
-        //ToDo Adicionar um ouro na carteira kk
+        mercado.Moeda += (1 * this.Nivel)
     }
 }

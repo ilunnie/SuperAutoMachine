@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 public abstract class Team
 {
+    public int Vidas { get; private set; } = 5;
+    public string Name { get; set; }
+    public Round Round = new();
     public Piece[] pieces = new Piece[5];
     public Mercado Mercado { get; private set; }
 
@@ -25,5 +28,10 @@ public abstract class Team
         }
         pieces[index] = piece;
         pieces[index].BuyEffect();
+    }
+
+    public void Sell()
+    {
+
     }
 }

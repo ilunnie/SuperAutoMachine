@@ -29,7 +29,7 @@ public class Esteira : Piece
 
     public override void SellEffect(Mercado mercado)
     {
-        //ToDo Adiciona um de ouro ao player
+        mercado.Moeda += 1;
     }
 
     public override void StartBattleEffect() { }
