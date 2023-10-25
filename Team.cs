@@ -30,8 +30,20 @@ public abstract class Team
         pieces[index].BuyEffect();
     }
 
-    public void Sell()
+    public void Sell(int index)
     {
+        if(pieces[index] is null)
+            throw new InvalidOperationException(
+                "index vazio"
+            );
 
+        for (int i = 0; i < 5; i++)
+        {
+            if(pieces[i] is null)
+                continue;
+            pieces[i].SellEffect();
+        }
+
+        pieces[index] = null;
     }
 }

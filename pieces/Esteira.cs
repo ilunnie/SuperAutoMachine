@@ -27,12 +27,12 @@ public class Esteira : Piece
 
     public override void LevelUpEffect() { }
 
-    public override void SellEffect(Mercado mercado)
+    public override void SellEffect()
     {
-        mercado.Moeda += 1;
+        this.team.Mercado.Moeda += 1;
     }
 
     public override void StartBattleEffect() { }
 
-    public override void StartShoppingEffect(Mercado mercado) { }
+    public override void StartShoppingEffect() { }
 }

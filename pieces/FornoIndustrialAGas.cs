@@ -27,12 +27,12 @@ public class FornoIndustrialAGas : Piece
 
     public override void LevelUpEffect() { }
 
-    public override void SellEffect(Mercado mercado) { }
+    public override void SellEffect() { }
 
     public override void StartBattleEffect() { }
 
-    public override void StartShoppingEffect(Mercado mercado) 
+    public override void StartShoppingEffect() 
     {
-        mercado.Moeda += (1 * this.Nivel);
+        this.team.Mercado.Moeda += (1 * this.Nivel);
     }
 }
