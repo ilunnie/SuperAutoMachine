@@ -5,6 +5,7 @@ using System.Drawing.Drawing2D;
 
 public abstract class Piece
 {
+    public Team? team { get; set; }
     public bool Vivo { get; protected set; } = true;
     public int Tier { get; protected set; }
     public int Vida { get; set; }

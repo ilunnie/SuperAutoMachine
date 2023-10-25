@@ -31,7 +31,17 @@ public class Torno : Piece
 
     public override void StartBattleEffect() 
     { 
-        throw new NotImplementedException("Tem q implementar kk");
+        bool tem_nivel_3 = false;
+        foreach (var piece in this.team.pieces)
+        {
+            if(piece.Nivel == 3)
+                tem_nivel_3 = true;
+        }
+
+        if (tem_nivel_3) {
+            this.Ataque += 2;
+            this.Vida += 2;
+        }
     }
 
     public override void StartShoppingEffect(Mercado mercado) { }

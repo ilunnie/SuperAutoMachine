@@ -27,6 +27,10 @@ public class FuradeiraDeCoordenada : Piece
     {
         if(this.Vida <= 0)
             return;
+
+        Team enemy = this.team.GetEnemy();
+        Piece piece = enemy.RandomPiece();
+        piece.RecebeDano(this.Ataque);
     }
 
     public override void LevelUpEffect() { }

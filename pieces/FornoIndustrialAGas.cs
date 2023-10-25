@@ -33,6 +33,6 @@ public class FornoIndustrialAGas : Piece
 
     public override void StartShoppingEffect(Mercado mercado) 
     {
-        mercado.Moeda += (1 * this.Nivel)
+        mercado.Moeda += (1 * this.Nivel);
     }
 }

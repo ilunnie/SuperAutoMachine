@@ -1,7 +1,7 @@
 public class Round
 {
-    protected Team teamEsquerdo { get; set; }
-    protected Team teamDireito { get; set; }
+    public Team teamEsquerdo { get; protected set; }
+    public Team teamDireito { get; protected set; }
 
     private Round current = null;
     public void NewRound(Team teamEsquerdo, Team teamDireito)
