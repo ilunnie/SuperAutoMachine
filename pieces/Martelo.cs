@@ -27,9 +27,9 @@ public class Martelo : Piece
 
     public override void LevelUpEffect() { }
 
-    public override void SellEffect(Mercado mercado) { }
+    public override void SellEffect() { }
 
     public override void StartBattleEffect() { }
 
-    public override void StartShoppingEffect(Mercado mercado) { }
+    public override void StartShoppingEffect() { }
 }

@@ -59,11 +59,11 @@ public abstract class Piece
     }
 
     public abstract void FaintEffect();
-    public abstract void SellEffect(Mercado mercado);
+    public abstract void SellEffect();
     public abstract void BuyEffect();
     public abstract void LevelUpEffect();
     public abstract void StartBattleEffect();
     public abstract void AllySummonedEffect();
-    public abstract void StartShoppingEffect(Mercado mercado);
+    public abstract void StartShoppingEffect();
     public abstract Piece Clone();
 }
