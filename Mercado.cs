@@ -2,6 +2,7 @@ using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Windows.Forms;
 
 public class Mercado
 {
@@ -17,6 +18,7 @@ public class Mercado
     public void Buy(int index, int destiny) {
         if (Moeda < 3)
             throw new InvalidOperationException("Faltou moeda seu pobre kk");
+        Moeda -= 3;
 
         team.Add(pieces[index], destiny);
         pieces.RemoveAt(index);
@@ -28,7 +30,7 @@ public class Mercado
     public void Refill()
     {
         if (Moeda < 1)
-            return;
+            throw new InvalidOperationException("Seu Probre kk");
 
         Moeda--;
         FreeRefill();

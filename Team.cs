@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 public abstract class Team
 {
@@ -19,12 +20,11 @@ public abstract class Team
             throw new InvalidOperationException(
                 "ocupado kk"
             );
-
+        
         for(int i = 0; i < 5; i++)
         {
-            if(pieces[i] is null)
-                continue;
-            pieces[i].AllySummonedEffect();
+            if(pieces[i] != null)
+                pieces[i].AllySummonedEffect();
         }
         pieces[index] = piece;
         pieces[index].BuyEffect();
@@ -45,5 +45,30 @@ public abstract class Team
         }
 
         pieces[index] = null;
+    }
+
+    public void Sort(int index1, int index2)
+    {
+        if(pieces[index1].GetType() == pieces[index2].GetType())
+        {
+            pieces[index1].Fundir(pieces[index2]);
+            pieces[index2] = null;
+        }
+        else
+        {
+            if (pieces[index1] is null) {
+                pieces[index1] = pieces[index2];
+                pieces[index2] = null;
+                return;
+            }
+            if (pieces[index2] is null) {
+                pieces[index2] = pieces[index1];
+                pieces[index1] = null;
+                return;
+            }
+            var temp = pieces[index1];
+            pieces[index1] = pieces[index2];
+            pieces[index2] = temp;
+        }
     }
 }

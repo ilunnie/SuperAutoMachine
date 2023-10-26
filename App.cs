@@ -124,7 +124,7 @@ public abstract class App
         g.DrawRectangle(pen, rect.X, rect.Y, realWidth, rect.Height);
  
         if (image == null)
-            DrawText(name, Color.White, rect);
+            DrawText(name, Color.Black, rect);
         else DrawImage(image, rect);
  
         var attackRect = new RectangleF(rect.X, rect.Y + .8f * rect.Height, realWidth / 3, realWidth / 3);
