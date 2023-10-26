@@ -3,6 +3,9 @@ public class Round
     public Team teamEsquerdo { get; protected set; }
     public Team teamDireito { get; protected set; }
 
+    public bool Shopping { get; private set; }
+    public bool Battling { get; private set; }
+
     private Round current = null;
     public void NewRound(Team teamEsquerdo, Team teamDireito)
     {
@@ -11,11 +14,11 @@ public class Round
         this.current.teamDireito = teamDireito;
         this.current.teamEsquerdo.Round = this;
         this.current.teamDireito.Round = this;
-    }
 
-    public Team Start()
-    {
-        //ToDo aqui que rola a batalha
-        return teamDireito;
-    } 
+        this.Shopping = true;
+        this.Battling = false;
+
+        teamEsquerdo.Mercado.FreeRefill();
+        teamDireito.Mercado.FreeRefill();
+    }
 }

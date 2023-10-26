@@ -1,2 +1,2 @@
-App app = new ExampleApp();
+App app = new GameApp();
 app.Run();

@@ -8,15 +8,15 @@ public class Mercado
     private Team team = null;
     public int Moeda { get; set; } = 10;
     public int MaxTier { get; protected set; } = 1;
-    private List<Piece> pieces = new();
-    private List<Piece> basePieces = new();
+    public List<Piece> pieces = new();
+    public List<Piece> basePieces = new();
 
     public Mercado(Team team)
         => this.team = team;
 
     public void Buy(int index, int destiny) {
         if (Moeda < 3)
-            return;
+            throw new InvalidOperationException("Faltou moeda seu pobre kk");
 
         team.Add(pieces[index], destiny);
         pieces.RemoveAt(index);
@@ -45,7 +45,8 @@ public class Mercado
     private Piece getRandomPiece()
     {
         while(true) {
-            int index = Random.Shared.Next();
+            Random random = new Random();
+            int index = random.Next(0, basePieces.Count);
             var piece = this.basePieces[index];
 
             if(piece.Tier <= MaxTier)
